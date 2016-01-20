@@ -34,47 +34,42 @@ namespace Format
             }
 
             String line;
+            String build = "";
             while ((line = Console.ReadLine()) != null)
             {
-                String[] tokens = line.Split(' ');
 
-                if(tokens.Length == 0)
+                 String[] tokens = line.Split(' ');
+
+                if (tokens.Length == 1 && tokens.First() == "")
                 {
                     continue;
                 }
 
-                int n = 0;
-                while(n < tokens.Length)
+                else
                 {
-                    String build = "";
-                    for(int i = 0; i < numTokens; i++)
-                    {
-                        if(n == tokens.Length)
-                        {
-                            while((line = Console.ReadLine()).Length != 0)
-                            {
-                                line = Console.ReadLine();
-                            }
+                    int n = 0;
 
-                            tokens = line.Split(' ');
-                            n = 0;
-                          if(Console.ReadLine() == null)
+                    while (n < tokens.Length)
+                    {
+                        for ( int i = 0; i < numTokens;  i++)
+                        {
+                            if (n == tokens.Length)
                             {
                                 break;
                             }
-                            else
-                            {
-                                line = Console.ReadLine();
-                                tokens = line.Split(' ');
-                                n = 0;
-                            }
+                            build += tokens[n++] + " ";
                         }
-                        build += tokens[n++] + " ";
-                    }
-                    Console.WriteLine(build.TrimEnd());
-                }
+                        if (build.TrimEnd().Split().Length == numTokens)
+                        {
+                            Console.WriteLine(build.TrimEnd());
+                            build = "";
+                        }
 
+                    }
+
+                }
             }
+            Console.WriteLine(build.TrimEnd());
 
         }
 
