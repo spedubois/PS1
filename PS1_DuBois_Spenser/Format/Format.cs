@@ -36,28 +36,48 @@ namespace Format
             String line;
             while ((line = Console.ReadLine()) != null)
             {
-                String build = "";
                 String[] tokens = line.Split(' ');
 
-                if (tokens.Length < numTokens)
+                if(tokens.Length == 0)
                 {
-                    Console.WriteLine(line);
+                    continue;
                 }
 
-                else
+                int n = 0;
+                while(n < tokens.Length)
                 {
-                    for (int i = 0; i < numTokens; i++)
+                    String build = "";
+                    for(int i = 0; i < numTokens; i++)
                     {
-                        build += tokens[i] + " ";
-                    }
-                    build = build.TrimEnd(' ');
+                        if(n == tokens.Length)
+                        {
+                            while((line = Console.ReadLine()).Length != 0)
+                            {
+                                line = Console.ReadLine();
+                            }
 
-                    Console.WriteLine(build);
+                            tokens = line.Split(' ');
+                            n = 0;
+                          if(Console.ReadLine() == null)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                line = Console.ReadLine();
+                                tokens = line.Split(' ');
+                                n = 0;
+                            }
+                        }
+                        build += tokens[n++] + " ";
+                    }
+                    Console.WriteLine(build.TrimEnd());
                 }
 
             }
 
         }
+
     }
 }
 
