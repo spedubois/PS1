@@ -14,9 +14,9 @@ namespace LowerCase
     /// converts the tokens into lower case, and writes the new tokens (one per output line) 
     /// to its standard output stream in the order in which they were read.
     /// </summary>
-    public class LowerCase
+    class LowerCase
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             String line;
             while ((line = Console.ReadLine()) != null)

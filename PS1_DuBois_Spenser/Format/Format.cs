@@ -13,9 +13,9 @@ namespace Format
     /// in the order in which they were read. If no argument is found or the argument is a negative number,
     /// n defaults to 1.
     /// </summary>
-   public class Format
+    class Format
    {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             // numTokens = n 
             int numTokens;
@@ -37,7 +37,6 @@ namespace Format
             String build = "";
             while ((line = Console.ReadLine()) != null)
             {
-
                  String[] tokens = line.Split(' ');
 
                 if (tokens.Length == 1 && tokens.First() == "")
@@ -58,21 +57,18 @@ namespace Format
                                 break;
                             }
                             build += tokens[n++] + " ";
-                        }
-                        if (build.TrimEnd().Split().Length == numTokens)
-                        {
-                            Console.WriteLine(build.TrimEnd());
-                            build = "";
-                        }
 
+                            if (build.TrimEnd().Split().Length == numTokens)
+                            {
+                                Console.WriteLine(build.TrimEnd());
+                                build = "";
+                            }
+                        }
                     }
-
                 }
             }
             Console.WriteLine(build.TrimEnd());
-
         }
-
     }
 }
 

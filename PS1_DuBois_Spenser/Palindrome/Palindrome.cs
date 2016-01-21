@@ -13,9 +13,9 @@ namespace Palindrome
     ///  All lines that are palindromes should be written to the standard output stream in the order
     ///  in which they were read.
     /// </summary>
-    public class Palindrome
+    class Palindrome
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             String line;
             while ((line = Console.ReadLine()) != null)
